@@ -1,6 +1,6 @@
 {
-  "label": "Hardware",
-  "position": 2,
+  "label": "Stake Pool",
+  "position": 4,
   "link": {
     "type": "generated-index"
   }

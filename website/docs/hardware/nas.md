@@ -4,4 +4,5 @@ sidebar_position: 3
 
 # NAS
 
-A NAS (Network Attached Storage) ...
+A Network Attached Storage (NAS) device provides centralised, high performance file storage to client devices. 
+
