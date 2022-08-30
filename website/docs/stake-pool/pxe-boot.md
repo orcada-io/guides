@@ -17,4 +17,5 @@ sidebar_position: 2
 Clients require a network interface controller (NIC) and utilise DHCP and TFTP.
 
 In data centres, PXE is the most popular choice for operating system booting, installation and deployment.
- 
+
+## Synology NAS
