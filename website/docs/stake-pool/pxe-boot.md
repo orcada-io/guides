@@ -19,3 +19,5 @@ Clients require a network interface controller (NIC) and utilise DHCP and TFTP.
 In data centres, PXE is the most popular choice for operating system booting, installation and deployment.
 
 ## Synology NAS
+
+The Synology Diskstation DS720+ is running DSM 7.0.1 (DSM 7.0.1-42218 Update 3).
