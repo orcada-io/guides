@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Orcada Guides',
   tagline: 'Cardano Stake Pool Guides',
-  url: 'https://guides.orcada.io',
-  baseUrl: '/',
+  url: 'https://orcada-io.github.io',
+  baseUrl: '/guides/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/orcada-logo.png',
@@ -18,6 +18,8 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'orcada-io', // Usually your GitHub org/user name.
   projectName: 'guides', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
