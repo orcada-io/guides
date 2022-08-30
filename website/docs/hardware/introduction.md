@@ -8,21 +8,21 @@ What hardware do you need to host a Cardano stake pool?
 
 The answer is, it depends. 
 
-If you want to build and operate a <a href="https://en.wikipedia.org/wiki/Bare-metal_server" target="_blank">bare-metal server</a> decentralised network:
+If you want to build and operate a decentralised <a href="https://en.wikipedia.org/wiki/Bare-metal_server" target="_blank">bare-metal server</a> network, that is:
 
-> **that is scalable, highly available and secure**
+> **scalable, highly available and secure**
 
 Then you will need:
 
-- 1 @ Modem router combination (typically supplied by your **primary** Internet Service Provider)
-- 1 @ Modem router combination (typically supplied by your **alternate** Internet Service Provider)
+- 1 @ Modem router combo (typically supplied by your **primary** Internet Service Provider)
+- 1 @ Modem router combo (typically supplied by your **alternate** Internet Service Provider)
 - 1 @ Gateway (router)
-- 2 @ Switch
+- 2 @ Switches
 - 2 @ Public relay nodes
 - 1 @ Private relay node
 - 1 @ Core node
 - 1 @ Cold node 
-- 1 @ NAS
+- 1 @ NAS device
  
 For example:
 - 1 @ Netcomm NF18MESH
