@@ -113,7 +113,7 @@ username and password; set the locale settings and to skip the first-run wizard.
 
 I used the DHCP Server's DCHP Clients tab to find the RPi's (dynamic) IP address.
 
-You can also use [nmap](https://nmap.org/), for example:
+You can also use <a href="https://nmap.org/" target="_blank">nmap</a>, for example:
 
 ```
 sudo nmap -sn 192.168.101.0/24
@@ -276,9 +276,9 @@ Mount the `rpi-tftpboot` shared folder (the remote mount point) with NFS:
 sudo mount -t nfs -O proto=tcp,port=2049,rw,all_squash,anonuid=1001,anongid=1001 192.168.101.2:/volume1/rpi-tftpboot /nfs/rpi-tftpboot -vvv
 ```
 
-After mounting the `rpi-tftpboot` shared folder, the next step is to copy the universal RPi `bootcode.bin` to the root 
-of the `rpi-tftpboot` shared folder. `bootcode.bin` is used by all RPi models and must be in the root of this shared 
-folder for PXE Boot to succeed:
+After mounting the `rpi-tftpboot` shared folder, the next step is to copy the universal RPi <a href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-4-boot-eeprom" target="_blank">bootcode.bin</a>
+file to the root of the `rpi-tftpboot` shared folder. The <a href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-4-boot-eeprom" target="_blank">bootcode.bin</a> 
+file is used by all RPi models and must be in the root of this shared folder for PXE Boot to succeed:
 
 ```
 sudo cp /boot/bootcode.bin /nfs/rpi-tftpboot/
@@ -296,19 +296,19 @@ You should see something like:
 d7cde1e3
 ```
 
-Create a directory for the boot files, that matches the RPi's serial number:
+Create a directory for the Boot files, that matches the RPi's serial number:
 
 ```
 sudo mkdir -p /nfs/rpi-tftpboot/d7cde1e3
 ```
 
-Copy the boot files:
+Copy the Boot files:
 
 ```
 sudo cp -r /boot/* /nfs/rpi-tftpboot/d7cde1e3/
 ```
 
-### Configure the boot options
+### Configure the Boot options
 
 Edit `/etc/fstab` (the filesystem table) so that it mounts the RPi's tftpboot directory when it starts up:
 
@@ -335,9 +335,9 @@ Update it as follows:
 console=serial0,115200 console=tty1 root=/dev/nfs nfsroot=192.168.101.2:/volume1/rpi-pxe/relay-node-1.stake-pool.orcada.io,vers=3 rw ip=dhcp elevator=deadline rootwait
 ```
 
-### Configure the eeprom firmware
+### Configure the EEPROM firmware
 
-We need to configure the RPi's eeprom firmware to include the PXE boot options.
+We need to configure the RPi's EEPROM firmware to include the PXE boot options.
 
 Use the following command to identify the latest version of the firmware:
 
@@ -378,13 +378,13 @@ NET_BOOT_MAX_RETRIES=5
 
 The RPi will try to boot from a microSD card, then the network, then from any attached USB storage.
 
-Now we can create a new eeprom binary:
+Now we can create a new EEPROM binary:
 
 ```
 sudo rpi-eeprom-config --out pieeprom-new.bin --config bootconf.txt pieeprom.bin
 ```
 
-And write it to the eeprom:
+And write it to the EEPROM:
 
 ```
 sudo rpi-eeprom-update -d -f ./pieeprom-new.bin
