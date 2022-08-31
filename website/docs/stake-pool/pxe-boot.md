@@ -25,7 +25,7 @@ In data centres, PXE is the most popular choice for operating system booting, in
 ## Synology NAS
 
 What we need to do:
-* Configure a Static IP
+* Configure a static IP
 * Enable NFS
 * Create some Shared Folders
 * Edit the Shared Folders NFS permissions
@@ -33,7 +33,7 @@ What we need to do:
 * Install and configure a DHCP Server
 * Enable PXE Boot
 
-### Configure a Static IP
+### Configure a static IP
 
 In the Synology Disk Station Manager's Control Panel, click on Network and then select the Network Interface tab:
 
@@ -129,7 +129,7 @@ sudo apt-get autoremove
 sudo apt-get autoclean
 ```
 
-### Configure a Static IP
+### Configure a static IP
 
 The Raspberry Pi OS uses <a href="https://www.raspberrypi.com/documentation/computers/configuration.html" target="_blank">dhcpcd</a> 
 to configure TCP/IP across all of its network interfaces. We want to assign a static IP to our RPi.
@@ -225,13 +225,13 @@ Create a directory in the `rpi-pxe` shared folder, that matches the RPi's hostna
 
 ```
 cd /volume1/rpi-pxe
-sudo mkdir relay-node-1
+sudo mkdir relay-node-1.stake-pool.orcada.io
 ```
 
 And update the permissions:
 
 ```
-sudo chmod 777 relay-node-1
+sudo chmod 777 relay-node-1.stake-pool.orcada.io
 ```
 
 **Note:** You can check your RPi's hostname using the following command:
@@ -245,19 +245,19 @@ hostname
 Create a local mount point (directory) that matches the RPi's hostname:
 
 ```
-sudo mkdir -p /nfs/relay-node-1
+sudo mkdir -p /nfs/relay-node-1.stake-pool.orcada.io
 ```
 
 Mount the `rpi-pxe` shared folder (the remote mount point) with NFS:
 
 ```
-sudo mount -t nfs -O proto=tcp,port=2049,rw,all_squash,anonuid=1001,anongid=1001 192.168.101.2:/volume1/rpi-pxe/relay-node-1 /nfs/relay-node-1 -vvv
+sudo mount -t nfs -O proto=tcp,port=2049,rw,all_squash,anonuid=1001,anongid=1001 192.168.101.2:/volume1/rpi-pxe/relay-node-1.stake-pool.orcada.io /nfs/relay-node-1.stake-pool.orcada.io -vvv
 ```
 
 Copy the OS files (it will take a few minutes):
 
 ```
-sudo rsync -xa --progress --exclude /nfs / /nfs/relay-node-1/
+sudo rsync -xa --progress --exclude /nfs / /nfs/relay-node-1.stake-pool.orcada.io/
 ```
 
 ### Copy the Boot files to the rpi-tftpboot Shared Folder
@@ -308,12 +308,12 @@ Copy the boot files:
 sudo cp -r /boot/* /nfs/rpi-tftpboot/d7cde1e3/
 ```
 
-### Boot options
+### Configure the boot options
 
 Edit `/etc/fstab` (the filesystem table) so that it mounts the RPi's tftpboot directory when it starts up:
 
 ```
-sudo nano /nfs/relay-node-1/etc/fstab
+sudo nano /nfs/relay-node-1.stake-pool.orcada.io/etc/fstab
 ```
 
 Update it as follows:
@@ -332,13 +332,14 @@ sudo nano /nfs/rpi-tftpboot/d7cde1e3/cmdline.txt
 Update it as follows:
 
 ```
-console=serial0,115200 console=tty1 root=/dev/nfs nfsroot=192.168.101.2:/volume1/rpi-pxe/relay-node-1,vers=3 rw ip=dhcp elevator=deadline rootwait
+console=serial0,115200 console=tty1 root=/dev/nfs nfsroot=192.168.101.2:/volume1/rpi-pxe/relay-node-1.stake-pool.orcada.io,vers=3 rw ip=dhcp elevator=deadline rootwait
 ```
 
-### eeprom
+### Configure the eeprom firmware
 
-We need to configure the eeprom to include the PXE boot options. Use the following command to identify the latest 
-version of the firmware:
+We need to configure the RPi's eeprom firmware to include the PXE boot options.
+
+Use the following command to identify the latest version of the firmware:
 
 ```
 ls -al /lib/firmware/raspberrypi/bootloader/stable/
@@ -347,7 +348,7 @@ ls -al /lib/firmware/raspberrypi/bootloader/stable/
 Copy the latest version of the firmware to a temporary directory in your home directory:
 
 ```
-sudo cp /lib/firmware/raspberrypi/bootloader/stable/pieeprom-2022-03-10.bin pieeprom.bin
+sudo cp /lib/firmware/raspberrypi/bootloader/stable/pieeprom-2022-08-02.bin pieeprom.bin
 ```
 
 Create a boot configuration file:
