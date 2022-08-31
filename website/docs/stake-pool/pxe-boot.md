@@ -308,7 +308,7 @@ Copy the boot files:
 sudo cp -r /boot/* /nfs/rpi-tftpboot/d7cde1e3/
 ```
 
-#### Boot options
+### Boot options
 
 Edit `/etc/fstab` (the filesystem table) so that it mounts the RPi's tftpboot directory when it starts up:
 
@@ -335,7 +335,7 @@ Update it as follows:
 console=serial0,115200 console=tty1 root=/dev/nfs nfsroot=192.168.101.2:/volume1/rpi-pxe/relay-node-1,vers=3 rw ip=dhcp elevator=deadline rootwait
 ```
 
-#### eeprom
+### eeprom
 
 We need to configure the eeprom to include the PXE boot options. Use the following command to identify the latest 
 version of the firmware:
@@ -409,7 +409,7 @@ There is one more configuration step we need to complete on the DHCP Server, and
 
 ![Raspberry Pi 4 Model B 8GB](img/enable-pxe.png)
 
-#### PXE Boot
+### PXE Boot
 
 Shutdown the RPi:
 
