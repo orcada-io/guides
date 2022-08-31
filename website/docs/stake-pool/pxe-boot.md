@@ -131,8 +131,8 @@ sudo apt-get autoclean
 
 ### Configure a Static IP
 
-The Raspberry Pi uses `dhcpcd` to configure TCP/IP across all of its network interfaces. We want to assign a static IP 
-to our RPi.
+The Raspberry Pi OS uses <a href="https://www.raspberrypi.com/documentation/computers/configuration.html" target="_blank">dhcpcd</a> 
+to configure TCP/IP across all of its network interfaces. We want to assign a static IP to our RPi.
 
 Edit the `/etc/dhcpcd.conf`file:
 
@@ -152,7 +152,7 @@ static routers=192.168.101.1
 static domain_name_servers=192.168.101.1
 ```
 
-To restart `dhcpcd`:
+To restart dhcpcd:
 
 ```
 sudo systemctl daemon-reload && sudo systemctl restart dhcpcd
