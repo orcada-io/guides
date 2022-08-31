@@ -410,6 +410,8 @@ There is one more configuration step we need to complete on the DHCP Server, and
 
 ![Raspberry Pi 4 Model B 8GB](img/enable-pxe.png)
 
+## Raspberry Pi
+
 ### PXE Boot
 
 Shutdown the RPi:
