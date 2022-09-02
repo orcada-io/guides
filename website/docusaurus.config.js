@@ -66,7 +66,7 @@ const config = {
         style: 'dark',
         links: [
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Orcada.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Orcada`,
       },
       prism: {
         theme: lightCodeTheme,

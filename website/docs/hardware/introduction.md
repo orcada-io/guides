@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Introduction
 
-What hardware do you need to host a Cardano stake pool?
+What hardware do you need to host a Cardano Stake Pool?
 
 The answer is, it depends. 
 
@@ -14,24 +14,24 @@ If you want to build and operate a decentralised <a href="https://en.wikipedia.o
 
 Then you will need:
 
-- 1 @ Modem router combo (typically supplied by your **primary** Internet Service Provider)
-- 1 @ Modem router combo (typically supplied by your **alternate** Internet Service Provider)
-- 1 @ Gateway (router)
+- 1 @ Internet Gateway (Primary) - A modem / router combo typically supplied by your **primary** ISP
+- 1 @ Internet Gateway (Secondary) - A modem / router combo typically supplied by your **secondary** ISP
+- 1 @ Interior Router
 - 2 @ Switches
+- 1 @ NAS device
 - 2 @ Public relay nodes
 - 1 @ Private relay node
 - 1 @ Core node
 - 1 @ Cold node 
-- 1 @ NAS device
- 
+
 For example:
-- 1 @ Netcomm NF18MESH
+- 1 @ Netcomm NF18 CloudMesh
 - 1 @ Netgear M2
-- 1 @ tp-link ER605 router
-- 2 @ Netgear 308 switch
+- 1 @ tp-link ER605 Router
+- 2 @ Netgear 308 Switch
+- 1 @ Synology DS720+
 - 4 @ Raspberry Pi 4 Model B 8GB
 - 1 @ Raspberry Pi 400
-- 1 @ Synology Diskstation DS720+
 
 ## Minimum System Requirements
 

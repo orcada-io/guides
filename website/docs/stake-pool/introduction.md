@@ -4,10 +4,10 @@ sidebar_position: 1
 
 # Introduction
 
-This document provides a step-by-step guide to provisioning a bare-metal Cardano node server.
+This Stake Pool tutorial provides a step-by-step guide to building and operating a Cardano Stake Pool.
 
-### Prerequisites
-
-- 1 @ Synology Diskstation DS720+
-- 1 @ Micro SD Card (minimum 8GB)
-- 1 @ Raspberry Pi 4 Model B 8GB
+1. How to provision a bare-metal server
+2. How to setup a Cardano node
+3. How to configure a Cardano **Relay** node
+4. How to configure a Cardano **Core** node
+5. How to configure a Cardano **Cold** node
