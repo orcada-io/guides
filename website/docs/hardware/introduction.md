@@ -19,10 +19,10 @@ Then you will need:
 - 1 @ Interior Router
 - 2 @ Switches
 - 1 @ NAS device
-- 2 @ Public relay nodes
-- 1 @ Private relay node
-- 1 @ Core node
-- 1 @ Cold node 
+- 2 @ Cardano **Public Relay** nodes
+- 1 @ Cardano **Private Relay** node
+- 1 @ Cardano **Core** node
+- 1 @ Cardano **Cold** node 
 
 For example:
 - 1 @ Netcomm NF18 CloudMesh

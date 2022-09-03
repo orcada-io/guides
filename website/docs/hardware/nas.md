@@ -15,7 +15,9 @@ The DS720+ has two RJ-45 1GbE LAN ports and two built-in drive bays.
 It can support <a href="https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_1" target="_blank">RAID level 1</a> (an exact copy or mirror) 
 and the array will continue to operate so long as at least one member drive is operational.
 
-![Synology DS720+](./img/synology-ds720.png)
+![Synology DS720+](./img/synology-ds720-front.png)
+
+![Synology DS720+](./img/synology-ds720-back.png)
 
 ### Manuals
 
