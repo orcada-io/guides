@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[20],{2056:e=>{e.exports=JSON.parse('{"title":"Software","slug":"/category/software","permalink":"/guides/category/software","navigation":{"previous":{"title":"Raspberry Pi","permalink":"/guides/hardware/raspberry-pi"},"next":{"title":"Introduction","permalink":"/guides/software/"}}}')}}]);
