@@ -113,6 +113,7 @@ source ${HOME}/.bashrc; source ${HOME}/.adaenv
 ```
 
 :::caution
-It is important to remember that if you change a variable or a setting in the `.adaenv` configuration file then you must 
-reinitialise the values by sourcing the file.
+It is important to remember that if you change a variable or a setting in the `.adaenv` configuration file, then you must 
+reinitialise the values by sourcing the file. This also applies to changes that you make to any other configuration or 
+topology files. You must also restart the Cardano Node after any changes.
 :::
