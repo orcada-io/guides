@@ -429,6 +429,7 @@ process.
 Run gLiveView:
 
 ```
+cd $NODE_HOME/scripts
 ./gLiveView.sh
 ```
 
