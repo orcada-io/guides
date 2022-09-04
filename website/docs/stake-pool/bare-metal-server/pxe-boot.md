@@ -29,7 +29,7 @@ What we need to do:
 * Enable NFS
 * Create some Shared Folders and edit their NFS permissions
 * Enable TFTP
-* Install and configure a DHCP Server
+* Install a DHCP Server
 * Enable PXE Boot
 
 ### Configure a static IP
@@ -77,7 +77,7 @@ In the Control Panel, click on File Services and then select the Advanced tab:
 
 ![Enable TFTP](img/enable-tftp.png)
 
-### Install and configure a DHCP Server
+### Install a DHCP Server
 
 Use the DSM's Package Center to install a DHCP Server. In the DSM's Main Menu click on DHCP Server.
 

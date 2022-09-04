@@ -15,7 +15,6 @@ This is the operating system image that the Cardano **Relay** and **Core** nodes
 
 ## Raspberry Pi Desktop
 
-The Raspberry Pi Desktop image includes the Raspberry Pi Desktop, as well as most of the recommended software that 
-comes with Raspberry Pi OS, for any PC or Apple Mac computer.
+The Raspberry Pi Desktop image includes the Raspberry Pi Desktop.
 
 This is the operating system image that the Cardano **Cold** node (Raspberry Pi 400) will use.
