@@ -358,6 +358,22 @@ Starting the cardano-node will begin the process of syncing to the blockchain.
 
 :::info
 This is going to take a quite a while, the /db folder is about 80GB in size right now.
+
+```
+.
+├── git
+├── .local
+│   ├── bin
+├── pi-pool
+│   ├── db
+│   │   ├── immutable
+│   │   ├── ledger
+│   │   └── volatile
+│   ├── files
+│   ├── logs
+│   └── scripts
+└── tmp
+```
 :::
 
 Start the cardano-node:
