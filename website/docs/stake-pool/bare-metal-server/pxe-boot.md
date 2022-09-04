@@ -154,6 +154,8 @@ static routers=192.168.101.1
 static domain_name_servers=192.168.101.1
 ```
 
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
 To restart dhcpcd:
 
 ```
@@ -187,6 +189,8 @@ And update it as follows:
 relay-node-1.stake-pool.orcada.io
 ```
 
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
 We also need to edit the `/etc/hosts` file:
 
 ```
@@ -204,6 +208,8 @@ And update it as follows:
 ff02::1         ip6-allnodes
 ff02::2         ip6-allrouters
 ```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
 
 Reboot the RPi:
 
@@ -325,6 +331,8 @@ proc            /proc           proc    defaults          0       0
 192.168.101.2:/volume1/rpi-tftpboot/d7cde1e3 /boot nfs defaults,vers=3,proto=tcp 0 0
 ```
 
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
 Edit the kernel options in `cmdline.txt`:
 
 ```
@@ -336,6 +344,8 @@ Update it as follows:
 ```
 console=serial0,115200 console=tty1 root=/dev/nfs nfsroot=192.168.101.2:/volume1/rpi-pxe/relay-node-1.stake-pool.orcada.io,vers=3 rw ip=dhcp elevator=deadline rootwait
 ```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
 
 ### Configure the EEPROM firmware
 
@@ -377,6 +387,8 @@ BOOT_ORDER=0x241
 SD_CARD_MAX_RETRIES=3
 NET_BOOT_MAX_RETRIES=5
 ```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
 
 The RPi will try to boot from a microSD card, then the network, then from any attached USB storage.
 

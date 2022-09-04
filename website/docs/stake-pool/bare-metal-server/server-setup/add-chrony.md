@@ -4,6 +4,10 @@ sidebar_position: 3
 
 # Add chrony
 
+### Prerequisites
+
+Check the NTP Pool project's <a href="https://chrony.tuxfamily.org/" target="_blank">website</a> to find pools near you.
+
 ## Install chrony
 
 Install <a href="https://chrony.tuxfamily.org/" target="_blank">chrony</a>:
@@ -21,7 +25,7 @@ sudo nano /etc/chrony/chrony.conf
 And update it as follows:
 
 ``` 
-# Australia: au.pool.ntp.org (https://www.ntppool.org/zone/au)
+# Australia - https://www.ntppool.org/zone/au
 server 0.au.pool.ntp.org iburst minpoll 2 maxpoll 2 maxsources 3 maxdelay 0.3
 server 1.au.pool.ntp.org iburst minpoll 2 maxpoll 2 maxsources 3 maxdelay 0.3
 server 2.au.pool.ntp.org iburst minpoll 2 maxpoll 2 maxsources 3 maxdelay 0.3

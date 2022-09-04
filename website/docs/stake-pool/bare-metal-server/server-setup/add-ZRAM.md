@@ -4,7 +4,9 @@ sidebar_position: 2
 
 # Add ZRAM
 
-## Disable the Raspberry Pi OS swapfile
+### Prerequisites
+
+Disable the Raspberry Pi OS swapfile
 
 ```
 sudo systemctl disable dphys-swapfile.service

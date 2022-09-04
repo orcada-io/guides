@@ -30,7 +30,37 @@ You should see something like:
 passwd: password expiry information changed.
 ```
 
-## Enable automatic security updates
+## Disable wireless services
+
+Open `/boot/config.txt`:
+
+```
+sudo nano /boot/config.txt
+```
+
+Scroll down to the end of the file and add the following lines below the `[all]` placeholder:
+
+```
+...
+
+[all]
+# Disable wireless services
+dtoverlay=disable-wifi
+dtoverlay=disable-bt
+```
+
+## System updates
+
+Keep your system up to date:
+
+```
+sudo apt update
+sudo apt full-upgrade -y
+sudo apt-get autoremove
+sudo apt-get autoclean
+```
+
+### Enable automatic security updates
 
 ```
 sudo apt update && sudo apt install -y unattended-upgrades
@@ -56,7 +86,7 @@ tmpfs    /run/shm    tmpfs    ro,noexec,nosuid    0 0
 
 Then save (Ctrl+O) and exit (Ctrl+X) nano.
 
-## Increase the open file limit
+## Increase the open file limit for $USER (ada)
 
 Add a couple of lines to the bottom of the `/etc/security/limits.conf` file:
 
@@ -189,6 +219,8 @@ sysctl -p /etc/sysctl.conf
 
 exit 0
 ```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
 
 Enable the script:
 
