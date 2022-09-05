@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Relay Node
 
-## Configuration
+## Directory structure
 
 Create the directories for the project:
 
@@ -43,12 +43,12 @@ You should see something like:
 └── tmp
 ```
 
-## Environment
+## Configuration
 
 Create a configuration file that will contain all the **Cardano Node** variables and settings:
 
 ```
-sudo nano .adaenv
+nano .adaenv
 ```
 
 And update it as follows:
@@ -71,7 +71,7 @@ We want the `.bashrc` file to source the Cardano Node variables and settings:
 echo . ~/.adaenv >> ${HOME}/.bashrc
 ```
 
-Update `.adaenv` file, add `~/.local/bin` to the $PATH and create some bash variables:
+Update the `.adaenv` file, add `~/.local/bin` to the $PATH and create some bash variables:
 
 ```
 cd .local/bin; echo "export PATH=\"$PWD:\$PATH\"" >> $HOME/.adaenv && \
@@ -118,7 +118,7 @@ reinitialise the values by sourcing the file. This also applies to changes that 
 topology files. You must also restart the Cardano Node after any changes.
 :::
 
-## Download the node config files
+### Download the node config files
 
 Download the node config files:
 
@@ -313,7 +313,7 @@ sudo systemctl daemon-reload
 Now we can update the `.adaenv` file:
 
 ```
-sudo nano .adaenv
+nano .adaenv
 ```
 
 Add the following lines to the bottom of the file:
@@ -388,6 +388,70 @@ You only need to synchronise your first node, after that you can use the Synolog
 database directory.
 :::
 
+## Connecting with peers
+
+topologyUpdater is a <a href="https://cardano-community.github.io/guild-operators/" target="_blank">Guild Operators</a>
+helper script that enables nodes to connect with other nodes.
+
+Download the script:
+
+```
+cd $NODE_HOME/scripts
+wget https://raw.githubusercontent.com/cardano-community/guild-operators/master/scripts/cnode-helper-scripts/topologyUpdater.sh
+```
+
+Open the `topologyUpdater.sh` file:
+
+```
+nano topologyUpdater.sh
+```
+
+Lower the number of MAX_PEERS to 6 and add your custom peers (e.g., the IP address and port number of your Core Node):
+
+```
+...
+
+MAX_PEERS=6
+CUSTOM_PEERS="192.168.102.3,3000"
+```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
+Make the script executable:
+
+```
+chmod +x topologyUpdater.sh
+```
+
+### Create a cron job 
+
+Create a cron job that will run the topologyUpdater script once an hour:
+
+```
+crontab -e
+```
+
+Add the following lines to the bottom of the file:
+
+```
+SHELL=/bin/bash
+PATH=/home/ada/.local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+33 * * * * . $HOME/.adaenv; $HOME/pi-pool/scripts/topologyUpdater.sh
+```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
+
+
+
+
+
+
+
+
+
+
+
 ## Monitoring
 
 ### gLiveView
@@ -449,6 +513,7 @@ Run the following command to update the `${NODE_CONFIG}-config.json` file, set `
 listen on all interfaces with Prometheus Node Exporter:
 
 ```
+cd $NODE_FILES
 sed -i ${NODE_CONFIG}-config.json \
     -e "s/TraceBlockFetchDecisions\": false/TraceBlockFetchDecisions\": true/g" \
     -e "s/127.0.0.1/0.0.0.0/g"
