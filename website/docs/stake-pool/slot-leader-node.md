@@ -65,7 +65,7 @@ Use the following command to run a Shell in the Cardano Node container:
 ```
 sudo docker exec -it cardano-node bash
 ```
-Now we can use the Cardano CLI to query the leadership schedule:
+Now we can use the Cardano CLI to query the leadership schedule for the **current** epoch:
 
 ```
 export CARDANO_NODE_SOCKET_PATH=/ipc/node.socket
@@ -79,7 +79,16 @@ cardano-cli query leadership-schedule \
   --current
 ```
 
-1.5 days before epoch boundary:
+You should see something like:
+
+```
+SlotNo                          UTC Time              
+
+--------------------------------------------------
+71025961                   2022-09-07 23:10:52 UTC
+```
+
+1.5 days before an epoch boundary we can query the leadership schedule for the **next** epoch:
 
 ```
 export CARDANO_NODE_SOCKET_PATH=/ipc/node.socket
