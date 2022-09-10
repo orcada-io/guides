@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Relay Node
+# Cardano Relay Node
 
 ## Directory structure
 
@@ -247,23 +247,15 @@ Source the file:
 source $HOME/.bashrc
 ```
 
+:::info
+To further reduce memory and cpu usage set "TraceMemPool" to "false" in the `${NODE_CONFIG}-config.json` file:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
+cd $NODE_FILES
+sed -i ${NODE_CONFIG}-config.json \
+    -e "s/TraceMempool\": true/TraceMempool\": false/g"
+```
+:::
 
 ## Systemd service configuration
 
@@ -590,7 +582,7 @@ Install <a href="https://github.com/prometheus/node_exporter" target="_blank">Pr
 sudo apt install -y prometheus-node-exporter
 ```
 
-Run the following command to update the `${NODE_CONFIG}-config.json` file, set `TraceBlockFetchDecisions` to "true" and
+Run the following command to update the `${NODE_CONFIG}-config.json` file, set `TraceBlockFetchDecisions` to "true" and 
 listen on all interfaces with Prometheus Node Exporter:
 
 ```

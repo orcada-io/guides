@@ -436,7 +436,7 @@ sudo shutdown -h now
 
 Turn off the power, remove the microSD card, turn the power back on. The RPi should now PXE boot.
 
-Connect (SSH) to the RPi and check the mounted filesytems:
+Connect (SSH) to the RPi and check the mounted filesystems:
 
 ```
 findmnt
