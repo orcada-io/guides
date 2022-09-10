@@ -582,14 +582,15 @@ Install <a href="https://github.com/prometheus/node_exporter" target="_blank">Pr
 sudo apt install -y prometheus-node-exporter
 ```
 
-Run the following command to update the `${NODE_CONFIG}-config.json` file, set `TraceBlockFetchDecisions` to "true" and 
-listen on all interfaces with Prometheus Node Exporter:
+Run the following command to update the IP address for 'hasPrometheus' from `127.0.0.1` to `0.0.0.0` and enable 
+'TraceBlockFetchDecisions' in the `${NODE_CONFIG}-config.json` file:
 
 ```
 cd $NODE_FILES
 sed -i ${NODE_CONFIG}-config.json \
-    -e "s/TraceBlockFetchDecisions\": false/TraceBlockFetchDecisions\": true/g" \
-    -e "s/127.0.0.1/0.0.0.0/g"
+    -e "s/127.0.0.1/0.0.0.0/g" \
+    -e "s/TraceBlockFetchDecisions\": false/TraceBlockFetchDecisions\": true/g"
+
 ```
 
 ### Resources

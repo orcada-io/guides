@@ -68,8 +68,9 @@ sudo docker exec -it cardano-node bash
 Now we can use the Cardano CLI to query the leadership schedule:
 
 ```
-cd data
 export CARDANO_NODE_SOCKET_PATH=/ipc/node.socket
+cd data
+
 cardano-cli query leadership-schedule \
   --mainnet \
   --genesis /opt/cardano/config/mainnet-shelley-genesis.json \
@@ -81,7 +82,9 @@ cardano-cli query leadership-schedule \
 1.5 days before epoch boundary:
 
 ```
+export CARDANO_NODE_SOCKET_PATH=/ipc/node.socket
 cd data
+
 cardano-cli query leadership-schedule \
   --mainnet \
   --genesis /opt/cardano/config/mainnet-shelley-genesis.json \
