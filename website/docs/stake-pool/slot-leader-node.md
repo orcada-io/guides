@@ -69,6 +69,7 @@ Now we can use the Cardano CLI to query the leadership schedule:
 
 ```
 cd data
+export CARDANO_NODE_SOCKET_PATH=/ipc/node.socket
 cardano-cli query leadership-schedule \
   --mainnet \
   --genesis /opt/cardano/config/mainnet-shelley-genesis.json \
