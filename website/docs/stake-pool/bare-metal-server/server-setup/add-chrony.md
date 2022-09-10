@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ### Prerequisites
 
-Check the NTP Pool project's <a href="https://chrony.tuxfamily.org/" target="_blank">website</a> to find pools near you.
+Check the NTP Pool project's <a href="https://www.ntppool.org/en/" target="_blank">website</a> to find pools near you.
 
 ## Install chrony
 
