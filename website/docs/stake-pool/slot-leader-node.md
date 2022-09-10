@@ -102,6 +102,9 @@ cardano-cli query leadership-schedule \
   --next
 ```
 
+<i className="fas fa-arrows-alt"></i>
+
+
 ### Resources
 * Cardano docs: [Installing the Cardano node](https://docs.cardano.org/development-guidelines/installing-the-cardano-node)
 * The Cardano Operations Book: [Environments](https://book.world.dev.cardano.org/environments.html)

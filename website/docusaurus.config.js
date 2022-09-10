@@ -65,8 +65,43 @@ const config = {
       footer: {
         style: 'dark',
         links: [
+          {
+            title: 'COMMUNITY',
+            items: [
+              {
+                label: 'GitHub',
+                to: 'https://github.com/orcada-io',
+              }
+            ]
+          },
+          {
+            title: 'FOLLOW US',
+            items: [
+              {
+                label: 'Twitter',
+                to: 'https://twitter.com/Orcada_io',
+              },
+              {
+                label: 'Telegram',
+                to: 'https://t.me/orcada',
+              }
+            ]
+          },
+          {
+            title: 'LINKS',
+            items: [
+              {
+                label: 'How to Stake ADA',
+                to: 'https://orcada.io/staking/',
+              },
+              {
+                label: 'NFTs',
+                to: 'https://www.jpg.store/collection/e2885e5c7ebb308c7c0f5d8e8eb7e6078a7282e69cafb563bcd35e59',
+              }
+            ],
+          }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Orcada`,
+        copyright: `© ${new Date().getFullYear()} ORCADA PTY LTD `,
       },
       prism: {
         theme: lightCodeTheme,

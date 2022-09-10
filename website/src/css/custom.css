@@ -4,7 +4,11 @@
  * work well for content-centric websites.
  */
 
+/* Load the Poppins font (Regular and Bold) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Load all the Font Awesome styles */
+@import './all.css';
 
 /* You can override the default Infima variables here. */
 :root {
