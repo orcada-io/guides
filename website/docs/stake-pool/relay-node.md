@@ -176,13 +176,15 @@ $ which cardano-submit-api
 ### Glasgow Haskell Compiler
 
 The Cardano binaries are implemented in <a href="https://wiki.haskell.org/Introduction" target="_blank">Haskell</a> 
-which is a polymorphically statically typed, lazy, purely functional programming language. The Cardano binaries are 
-built using the Glasgow Haskell Compiler (GHC).
+which is a polymorphically statically typed, lazy, purely functional programming language. The Cardano executable 
+binaries are built using Cabal (a system for building and packaging Haskell libraries and programs) and the Glasgow 
+Haskell Compiler (GHC).
 
-To make an executable program, GHC compiles the source code and then links it with a **non-trivial runtime system**, 
+To make an executable program, GHC compiles the source code and then links it with a non-trivial ** runtime system**, 
 which handles storage management, thread scheduling, profiling, and so on.
 
-We can determine the default runtime system (RTS) parameters that the node has been complied with, using the following command:
+We can determine the default runtime system (RTS) parameters that the node has been complied with, using the following 
+command:
 
 ```
 cardano-node +RTS --info
@@ -236,7 +238,7 @@ nano $HOME/.bashrc
 Add the following line to the bottom of the file:
 
 ```
-export GHCRTS='-N4 --disable-delayed-os-memory-return --nonmoving-gc -I0.3 -Iw600 -A16m -F1.5 -H2500M -T -S'
+export GHCRTS='-N4 --disable-delayed-os-memory-return -I0.3 -Iw600 -A16m -F1.5 -H2500M -T -S'
 ```
 
 Then save (Ctrl+O) and exit (Ctrl+X) nano.
@@ -271,7 +273,6 @@ And update it as follows:
 #!/bin/bash
 . /home/ada/.adaenv
 
-## +RTS -N4 -RTS = Multicore(4)
 cardano-node run \
   --topology ${TOPOLOGY} \
   --database-path ${DB_PATH} \
@@ -596,4 +597,6 @@ sed -i ${NODE_CONFIG}-config.json \
 ### Resources
 * Haskell docs: [Runtime system (RTS) options](https://downloads.haskell.org/ghc/latest/docs/users_guide/runtime_control.html)
 * Glasgow Haskell Compiler User's Guide: [Advice on: sooner, faster, smaller, thriftier](https://mpickering.github.io/ghc-docs/build-html/users_guide/sooner.html)
-* Cardano forum: [Solving the Cardano node huge memory usage problem](https://forum.cardano.org/t/solving-the-cardano-node-huge-memory-usage-done/67032)
+* Cardano forum - ANFA July 21: [Solving the Cardano node huge memory usage problem](https://forum.cardano.org/t/solving-the-cardano-node-huge-memory-usage-done/67032)
+* Cardano forum - ANFA December 21: [Solving the Cardano node huge memory usage problem](https://forum.cardano.org/t/solving-the-cardano-node-huge-memory-usage-done/67032/96)
+* GitHub input-output-hk daedalus: [Drastically reduce cardano-node memory usage by setting RTS params](https://github.com/input-output-hk/daedalus/issues/2734)
