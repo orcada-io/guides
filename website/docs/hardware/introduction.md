@@ -33,6 +33,8 @@ For example:
 - 4 @ Raspberry Pi 4 Model B 8GB
 - 1 @ Raspberry Pi 400
 
+![Ocrada Infrastructure](./img/orcada-infrastructure.png)
+
 ## Minimum System Requirements
 
 The hardware that you choose to host your stake pool must meet the Cardano Node <a href="https://github.com/input-output-hk/cardano-node/releases" target="_blank">releases</a> minimum system requirements.

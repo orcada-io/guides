@@ -132,13 +132,13 @@ wget -N https://hydra.iohk.io/build/${NODE_BUILD_NUM}/download/1/${NODE_CONFIG}-
 wget -N https://raw.githubusercontent.com/input-output-hk/cardano-node/master/cardano-submit-api/config/tx-submit-mainnet-config.yaml
 ```
 
-## Build the Cardano binaries
+## Build the Cardano ARM binaries
 
 See: <a href="https://developers.cardano.org/docs/get-started/installing-cardano-node/" target="_blank">Cardano Developer Portal</a>
 
-## Download the Cardano binaries
+## Download the Cardano ARM binaries
 
-The **cardano-node**, **cardano-cli** and **cardano-submit-api** binaries are built by an IOHK engineer in his spare time.
+The **cardano-node**, **cardano-cli** and **cardano-submit-api** ARM binaries are built by an IOHK engineer in his spare time.
 Please consider delegating to the <a href="https://developers.cardano.org/docs/get-started/installing-cardano-node/" target="_blank">zw3rk</a> pool.
 
 ```
@@ -173,6 +173,98 @@ $ which cardano-submit-api
 /home/ada/.local/bin/cardano-submit-api
 ```
 
+### Glasgow Haskell Compiler
+
+The Cardano binaries are implemented in <a href="https://wiki.haskell.org/Introduction" target="_blank">Haskell</a> 
+which is a polymorphically statically typed, lazy, purely functional programming language. The Cardano binaries are 
+built using the Glasgow Haskell Compiler (GHC).
+
+To make an executable program, GHC compiles the source code and then links it with a **non-trivial runtime system**, 
+which handles storage management, thread scheduling, profiling, and so on.
+
+We can determine the default runtime system (RTS) parameters that the node has been complied with, using the following command:
+
+```
+cardano-node +RTS --info
+```
+
+You should see something like:
+
+```
+ [("GHC RTS", "YES")
+ ,("GHC version", "8.10.7")
+ ,("RTS way", "rts_thr")
+ ,("Build platform", "x86_64-unknown-linux")
+ ,("Build architecture", "x86_64")
+ ,("Build OS", "linux")
+ ,("Build vendor", "unknown")
+ ,("Host platform", "x86_64-unknown-linux")
+ ,("Host architecture", "x86_64")
+ ,("Host OS", "linux")
+ ,("Host vendor", "unknown")
+ ,("Target platform", "aarch64-unknown-linux")
+ ,("Target architecture", "aarch64")
+ ,("Target OS", "linux")
+ ,("Target vendor", "unknown")
+ ,("Word size", "64")
+ ,("Compiler unregisterised", "NO")
+ ,("Tables next to code", "YES")
+ ,("Flag -with-rtsopts", "-T -I0 -A16m -N2 --disable-delayed-os-memory-return")]
+```
+
+So the default RTS parameters are:
+
+```
+-T -I0 -A16m -N2 --disable-delayed-os-memory-return
+```
+
+### Runtime system options
+
+The RTS has a lot of options to control its behaviour. For example, you can change the context-switch interval, the 
+default size of the heap, and enable heap profiling.
+
+### Setting the runtime system options
+
+You can set the RTS options by using the `GHCRTS` environment variable.
+
+Open the `.bashrc` file:
+
+```
+nano $HOME/.bashrc
+```
+
+Add the following line to the bottom of the file:
+
+```
+export GHCRTS='-N4 --disable-delayed-os-memory-return --nonmoving-gc -I0.3 -Iw600 -A16m -F1.5 -H2500M -T -S'
+```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
+Source the file:
+
+```
+source $HOME/.bashrc
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Systemd service configuration
 
 Create the **cardano-node** startup script:
@@ -188,7 +280,7 @@ And update it as follows:
 . /home/ada/.adaenv
 
 ## +RTS -N4 -RTS = Multicore(4)
-cardano-node run +RTS -N4 -RTS \
+cardano-node run \
   --topology ${TOPOLOGY} \
   --database-path ${DB_PATH} \
   --socket-path ${CARDANO_NODE_SOCKET_PATH} \
@@ -441,17 +533,6 @@ PATH=/home/ada/.local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
 Then save (Ctrl+O) and exit (Ctrl+X) nano.
 
-
-
-
-
-
-
-
-
-
-
-
 ## Monitoring
 
 ### gLiveView
@@ -519,7 +600,7 @@ sed -i ${NODE_CONFIG}-config.json \
     -e "s/127.0.0.1/0.0.0.0/g"
 ```
 
-
-
-
-
+### Resources
+* Haskell docs: [Runtime system (RTS) options](https://downloads.haskell.org/ghc/latest/docs/users_guide/runtime_control.html)
+* Glasgow Haskell Compiler User's Guide: [Advice on: sooner, faster, smaller, thriftier](https://mpickering.github.io/ghc-docs/build-html/users_guide/sooner.html)
+* Cardano forum: [Solving the Cardano node huge memory usage problem](https://forum.cardano.org/t/solving-the-cardano-node-huge-memory-usage-done/67032)

@@ -8,7 +8,7 @@ A router in a Local Area Network (LAN) is called an interior router.
 
 ## TP-Link ER605 Omada Gigabit VPN Router
 
-![NF18MESH Front](./img/tplink-er605.png)
+![tp-link ER605](./img/tplink-er605.png)
 
 ### Manuals
 
