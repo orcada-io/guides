@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Add ZRAM
+# Add zram
 
 ### Prerequisites
 
@@ -12,9 +12,9 @@ Disable the Raspberry Pi OS swapfile
 sudo systemctl disable dphys-swapfile.service
 ```
 
-## Install ZRAM
+## Install zram
 
-Install the ZRAM tools:
+Install the zram tools:
 
 ```
 sudo apt install -y zram-tools
@@ -62,4 +62,4 @@ sudo reboot
 ```
 
 ### Resources
-* Hayden James blog: [ZRAM](https://haydenjames.io/raspberry-pi-performance-add-zram-kernel-parameters/)
+* Hayden James blog: [zram](https://haydenjames.io/raspberry-pi-performance-add-zram-kernel-parameters/)

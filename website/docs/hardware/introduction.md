@@ -45,4 +45,4 @@ The hardware that you choose to host your stake pool must meet the Cardano Node 
 - 16GB of RAM
 - 100GB of free storage (150GB recommended for future growth)
 
-**Note:** A Raspberry Pi 4 Model B 8GB can be configured to use <a href="https://en.wikipedia.org/wiki/Zram" target="_blank">Zram</a> in order to meet the 16GB of RAM requirement. 
+**Note:** A Raspberry Pi 4 Model B 8GB can be configured to use <a href="https://en.wikipedia.org/wiki/Zram" target="_blank">zram</a> in order to meet the 16GB of RAM requirement. 

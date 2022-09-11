@@ -4,11 +4,11 @@ sidebar_position: 7
 
 # Slot Leader Node
 
-## Raspberry Pi 4 Model B
+## ~~Raspberry Pi 4 Model B~~
 
 The Raspberry Pi 4 Model B was released with support for up to **8GB** of physical memory. 
 
-However, even with ZRAM enabled and a optimally configured GHC (Glasgow Haskell Compiler) runtime system, it does not 
+However, even with zram enabled and an optimally configured GHC (Glasgow Haskell Compiler) runtime system, it does not 
 have enough resources to run a Cardano Node and query the leadership schedule.
 
 ## Synology DS720+

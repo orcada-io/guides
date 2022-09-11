@@ -4,6 +4,14 @@ sidebar_position: 3
 
 # Relay Node
 
+## Raspberry Pi 4 Model B 8GB
+
+<p align="center">
+
+![Raspberry Pi 4 Model B](./img/raspberry-pi-4.png)
+
+</p>
+
 ## Directory structure
 
 Create the directories for the project:
