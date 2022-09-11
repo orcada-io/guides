@@ -415,13 +415,11 @@ Add the following lines to the bottom of the file:
 ...
 
 cardano-service() {
-    #do things with parameters like $1 such as
-    sudo systemctl "$1" cardano-node.service
+  sudo systemctl "$1" cardano-node.service
 }
 
 cardano-submit() {
-    #do things with parameters like $1 such as
-    sudo systemctl "$1" cardano-submit.service
+  sudo systemctl "$1" cardano-submit.service
 }
 ```
 
