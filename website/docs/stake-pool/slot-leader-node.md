@@ -8,7 +8,7 @@ sidebar_position: 7
 
 The Raspberry Pi 4 Model B was released with support for up to **8GB** of physical memory. 
 
-However, even with ZRAM enabled and a optimally configured GHC (Glasgow Haskell Compiler) runtime system it does not 
+However, even with ZRAM enabled and a optimally configured GHC (Glasgow Haskell Compiler) runtime system, it does not 
 have enough resources to run a Cardano Node and query the leadership schedule.
 
 ## Synology DS720+
@@ -26,13 +26,14 @@ Use the Synology DSM's Package Center to download and install Docker:
 
 The installation will create a Shared Folder called docker: `/volume1/docker`
 
-### Install the Cardano Node Docker Image
+### Create the directories for the image
 
 Connect (SSH) to the Synology NAS, you should see something like:
 
 ```
 admin@nas-1:~$
 ```
+
 Create the directories for the Cardano Node image:
 
 ```
@@ -40,6 +41,8 @@ cd /volume1/docker
 mkdir cardano-node-data
 mkdir cardano-node-ipc
 ```
+
+### Run the image
 
 Run the Cardano Node:
 
@@ -53,11 +56,18 @@ docker run -d --name=cardano-node \
 
 After a few minutes you should see something like:
 
-![Docker](./img/dsm-docker-cardano-node.png)
+![Docker - Run the image](./img/dsm-docker-cardano-node.png)
 
-Stop the container
+Stop the container:
 
-Use the Synology DSM's File Station to copy the following files from the Core Node's `${NODE_HOME}` (/home/ada/pi-pool)
+![Docker - Stop the conatiner](./img/dsm-docker-stop-the-container.png)
+
+Use the Synology DSM's File Station to copy the database directory from another (stopped) node to the
+`/volume1/docker/cardano-node-data` directory:
+
+![Docker - Copy the database directory](./img/sln-db-directory.png)
+
+Use the File Station to copy the following files from the Core Node's `${NODE_HOME}` (/home/ada/pi-pool)
 directory to the `/volume1/docker/cardano-node-data` directory:
 
 ```
@@ -65,25 +75,20 @@ stakepoolid.txt
 vrf.skey
 ```
 
-![Docker](./img/sln-other-files.png)
+![Docker - Copy files](./img/sln-other-files.png)
 
-Use the Synology DSM's File Station to copy the database directory from another (stopped) node to the 
-`/volume1/docker/cardano-node-data` directory:
+Restart the container.
 
-![Docker](./img/sln-db-directory.png)
-
-Restart the container
-
-### Query the leadership schedule
-
-
-### Run a Shell in the Cardano Node container
+### Run a Shell in the container
 
 Use the following command to run a Shell in the Cardano Node container:
 
 ```
 sudo docker exec -it cardano-node bash
 ```
+
+### Query the leadership schedule
+
 Now we can use the Cardano CLI to query the leadership schedule for the **current** epoch:
 
 ```
