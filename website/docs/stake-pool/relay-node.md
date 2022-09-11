@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Cardano Relay Node
+# Relay Node
 
 ## Directory structure
 

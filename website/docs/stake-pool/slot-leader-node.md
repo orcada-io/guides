@@ -2,14 +2,21 @@
 sidebar_position: 7
 ---
 
-# Cardano Slot Leader Node
+# Slot Leader Node
+
+## Raspberry Pi 4 Model B
+
+The Raspberry Pi 4 Model B was released with support for up to **8GB** of physical memory. 
+
+However, even with ZRAM enabled and a optimally configured GHC (Glasgow Haskell Compiler) runtime system it does not 
+have enough resources to run a Cardano Node and query the leadership schedule.
 
 ## Synology DS720+
 
 The Synology DS720+ provides centralised, high performance file storage to our bare-metal devices.
 
-However, because the DS720+ has **18GB** of physical memory it can also run a containerised version of the Cardano 
-Node software. We can use this node to obtain the leadership schedule.
+The DS720+ has **18GB** of physical memory, so it can run a containerised version of the Cardano
+Node software and query the leadership schedule.
 
 ### Docker 
 
@@ -48,15 +55,27 @@ After a few minutes you should see something like:
 
 ![Docker](./img/dsm-docker-cardano-node.png)
 
-### Query the leadership schedule
+Stop the container
 
-Use the Synology DSM's File Station to copy the following files from the Core Node's `${NODE_HOME}` (/home/ada/pi-pool) 
+Use the Synology DSM's File Station to copy the following files from the Core Node's `${NODE_HOME}` (/home/ada/pi-pool)
 directory to the `/volume1/docker/cardano-node-data` directory:
 
 ```
 stakepoolid.txt
 vrf.skey
 ```
+
+![Docker](./img/sln-other-files.png)
+
+Use the Synology DSM's File Station to copy the database directory from another (stopped) node to the 
+`/volume1/docker/cardano-node-data` directory:
+
+![Docker](./img/sln-db-directory.png)
+
+Restart the container
+
+### Query the leadership schedule
+
 
 ### Run a Shell in the Cardano Node container
 
@@ -101,9 +120,6 @@ cardano-cli query leadership-schedule \
   --vrf-signing-key-file ./vrf.skey \
   --next
 ```
-
-<i className="fas fa-arrows-alt"></i>
-
 
 ### Resources
 * Cardano docs: [Installing the Cardano node](https://docs.cardano.org/development-guidelines/installing-the-cardano-node)
