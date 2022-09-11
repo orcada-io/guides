@@ -63,7 +63,6 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
         links: [
           {
             title: 'COMMUNITY',
@@ -101,7 +100,14 @@ const config = {
             ],
           }
         ],
-        copyright: `© ${new Date().getFullYear()} ORCADA PTY LTD `,
+        copyright: `
+<p align="center">
+
+<img src="./img/orcada-logo.png" alt="Orcada" width="100"/>
+
+</p>
+        © ${new Date().getFullYear()} ORCADA PTY LTD 
+        `,
       },
       prism: {
         theme: lightCodeTheme,
