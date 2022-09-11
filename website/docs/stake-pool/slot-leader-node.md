@@ -75,7 +75,17 @@ stakepoolid.txt
 vrf.skey
 ```
 
-![Docker - Copy files](./img/sln-other-files.png)
+![Docker - Copy files](./img/sln-vrf-skey.png)
+
+Use the File Station to copy the following file from the Core Node's `${NODE_HOME}` (/home/ada/pi-pool/files)
+directory to the `/volume1/docker/cardano-node-data` directory:
+
+```
+mainnet-shelley-genesis.json
+```
+
+![Docker - Copy file](./img/sln-shelley-genesis.png)
+
 
 Restart the container.
 
@@ -97,7 +107,7 @@ cd data
 
 cardano-cli query leadership-schedule \
   --mainnet \
-  --genesis /opt/cardano/config/mainnet-shelley-genesis.json \
+  --genesis ./mainnet-shelley-genesis.json \
   --stake-pool-id $(cat ./stakepoolid.txt) \
   --vrf-signing-key-file ./vrf.skey \
   --current
@@ -120,7 +130,7 @@ cd data
 
 cardano-cli query leadership-schedule \
   --mainnet \
-  --genesis /opt/cardano/config/mainnet-shelley-genesis.json \
+  --genesis ./mainnet-shelley-genesis.json \
   --stake-pool-id $(cat ./stakepoolid.txt) \
   --vrf-signing-key-file ./vrf.skey \
   --next
