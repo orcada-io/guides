@@ -100,14 +100,7 @@ const config = {
             ],
           }
         ],
-        copyright: `
-<p align="center">
-
-<img src="./img/orcada-logo.png" alt="Orcada" width="100"/>
-
-</p>
-        © ${new Date().getFullYear()} ORCADA PTY LTD 
-        `,
+        copyright: `<img src="img/orcada-logo.png" alt="Orcada" width="100"/> <br /> © ${new Date().getFullYear()} ORCADA PTY LTD`,
       },
       prism: {
         theme: lightCodeTheme,

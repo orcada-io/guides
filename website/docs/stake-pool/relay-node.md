@@ -579,7 +579,11 @@ cd $NODE_HOME/scripts
 
 You should see something like:
 
+<p align="center">
+
 ![gLiveView](img/gliveview.png)
+
+</p>
 
 ### Prometheus
 

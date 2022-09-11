@@ -100,7 +100,11 @@ setup our RPi.
 
 ## Raspberry Pi
 
-![Raspberry Pi 4 Model B 8GB](img/rpi-4-model-b.jpg)
+<p align="center">
+
+![Raspberry Pi 4 Model B](img/raspberry-pi-4.png)
+
+</p>
 
 ### Raspberry Pi Imager
 
