@@ -246,7 +246,7 @@ nano $HOME/.bashrc
 Add the following line to the bottom of the file:
 
 ```
-export GHCRTS='-N4 --disable-delayed-os-memory-return -I0.3 -Iw600 -A16m -F1.5 -H2500M -T -S'
+export GHCRTS='-A64M -AL128M -F1.1 -H3500M -I0.1 -Iw3600 -N2 -n4m -O3500M'
 ```
 
 Then save (Ctrl+O) and exit (Ctrl+X) nano.
