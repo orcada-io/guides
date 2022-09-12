@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ### Prerequisites
 
-Disable the Raspberry Pi OS swapfile
+Disable the Raspberry Pi OS swapfile:
 
 ```
 sudo systemctl disable dphys-swapfile.service
