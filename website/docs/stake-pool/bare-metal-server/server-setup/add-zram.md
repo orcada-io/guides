@@ -61,5 +61,14 @@ Reboot the RPi:
 sudo reboot
 ```
 
+### Useful commands
+
+Run the following command to see how much zram swap a Cardano Node is using:
+
+```
+CN_ZRAM=$(pidof cardano-node)
+grep --color VmSwap /proc/$CN_ZRAM/status
+```
+
 ### Resources
 * Hayden James blog: [zram](https://haydenjames.io/raspberry-pi-performance-add-zram-kernel-parameters/)

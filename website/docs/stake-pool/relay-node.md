@@ -439,8 +439,8 @@ For example:
 ```
 cardano-service enable
 cardano-service start
-cardano-service stop
 cardano-service status
+cardano-service stop
 ```
 
 ## Syncing to the blockchain
@@ -547,7 +547,8 @@ wget https://raw.githubusercontent.com/cardano-community/guild-operators/master/
 wget https://raw.githubusercontent.com/cardano-community/guild-operators/master/scripts/cnode-helper-scripts/gLiveView.sh
 ```
 
-Add a line sourcing the `.adaenv` file to the top of the gLiveView `env` file and adjust some paths:
+Add a line sourcing the `.adaenv` file to the top of the Guild Operators <a href="https://cardano-community.github.io/guild-operators/Scripts/env/" target="_blank">common environment</a> 
+file (called `env`) and adjust some paths:
 
 ```
 sed -i env \
