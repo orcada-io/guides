@@ -4,6 +4,12 @@ sidebar_position: 2
 
 # Add zram
 
+## What is zram?
+
+> zram, formerly called compcache, is a Linux kernel module for creating a compressed block device in RAM, i.e., a RAM 
+> disk, but with on-the-fly "disk" compression. The block device created with zram can then be used for swap or as 
+> general-purpose RAM disk. - Wikipedia
+
 ### Prerequisites
 
 Disable the Raspberry Pi OS swapfile:
@@ -55,10 +61,10 @@ PERCENT=150
 
 Then save (Ctrl+O) and exit (Ctrl+X) nano.
 
-Reboot the RPi:
+Reload zram:
 
 ```
-sudo reboot
+sudo systemctl reload zramswap.service
 ```
 
 ### Useful commands
@@ -67,8 +73,8 @@ Run the following command to see how much zram swap a Cardano Node is using:
 
 ```
 CN_ZRAM=$(pidof cardano-node)
-grep --color VmSwap /proc/$CN_ZRAM/status
+grep VmSwap /proc/$CN_ZRAM/status
 ```
 
 ### Resources
-* Hayden James blog: [zram](https://haydenjames.io/raspberry-pi-performance-add-zram-kernel-parameters/)
+* Debian wiki: [zram](https://wiki.debian.org/ZRam)
