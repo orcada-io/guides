@@ -69,11 +69,18 @@ sudo systemctl reload zramswap.service
 
 ### Useful commands
 
-Run the following command to see how much zram swap a Cardano Node is using:
+Run the following command to check your memory usage:
 
 ```
-CN_ZRAM=$(pidof cardano-node)
-grep VmSwap /proc/$CN_ZRAM/status
+free -h
+```
+
+You should see something like:
+
+```
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       7.4Gi        94Mi          0B       159Mi       132Mi
+Swap:           11Gi       8.1Gi       3.4Gi
 ```
 
 ### Resources

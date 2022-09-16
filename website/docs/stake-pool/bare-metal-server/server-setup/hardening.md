@@ -182,56 +182,10 @@ net.ipv4.tcp_congestion_control = bbr
 
 Then save (Ctrl+O) and exit (Ctrl+X) nano.
 
-## Load our changes after boot
-
-To load our changes after boot we need to update the `rc.local` file.
-
-Open `/etc/rc.local`:
+Apply the new settings:
 
 ```
-sudo nano /etc/rc.local
-```
-
-And update it as follows:
-
-```
-#
-# rc.local
-#
-# This script is executed at the end of each multiuser runlevel.
-# Make sure that the script will "exit 0" on success or any other
-# value on error.
-#
-# In order to enable or disable this script just change the execution
-# bits.
-#
-# By default this script does nothing.
-
-# Print the IP address
-_IP=$(hostname -I) || true
-if [ "$_IP" ]; then
-printf "My IP address is %s\n" "$_IP"
-fi
-# Give CPU startup routines time to settle.
-sleep 120
-
-sysctl -p /etc/sysctl.conf
-
-exit 0
-```
-
-Then save (Ctrl+O) and exit (Ctrl+X) nano.
-
-Enable the script:
-
-```
-sudo chmod +x /etc/rc.local
-```
-
-Reboot the RPi:
-
-```
-sudo reboot
+sudo sysctl -p
 ```
 
 ### Resources
