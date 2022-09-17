@@ -406,14 +406,12 @@ sudo systemctl daemon-reload
 Now we can update the `.adaenv` file:
 
 ```
-nano .adaenv
+nano $HOME/.adaenv
 ```
 
 Add the following lines to the bottom of the file:
 
 ```
-...
-
 cardano-service() {
   sudo systemctl "$1" cardano-node.service
 }
@@ -603,6 +601,47 @@ sed -i ${NODE_CONFIG}-config.json \
     -e "s/127.0.0.1/0.0.0.0/g" \
     -e "s/TraceBlockFetchDecisions\": false/TraceBlockFetchDecisions\": true/g"
 
+```
+
+Now we can update the `.adaenv` file:
+
+```
+nano $HOME/.adaenv
+```
+
+Add the following lines to the bottom of the file:
+
+```
+prometheus-node-exporter() {
+  sudo systemctl "$1" prometheus-node-exporter.service
+}
+```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
+Source the file:
+
+```
+source ${HOME}/.adaenv
+```
+
+What we just did was create a utility function that makes it easier to control the Prometheus Node Exporter.
+
+For example:
+
+```
+prometheus-node-exporter enable
+prometheus-node-exporter start
+prometheus-node-exporter status
+prometheus-node-exporter stop
+prometheus-node-exporter disable
+```
+
+Start the prometheus-node-exporter:
+
+```
+prometheus-node-exporter enable
+prometheus-node-exporter start
 ```
 
 ### Resources
