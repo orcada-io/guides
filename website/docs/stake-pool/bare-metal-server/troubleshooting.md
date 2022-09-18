@@ -53,7 +53,7 @@ you to filter out lower priority messages.
 For instance, to show only entries logged at the error level or above, you can type:
 
 ```
-journalctl -p err -b
+sudo journalctl -p err -b
 ```
 
 This will show you all messages marked as error, critical, alert, or emergency. The journal implements the standard 
