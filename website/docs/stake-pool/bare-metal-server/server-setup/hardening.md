@@ -174,10 +174,10 @@ net.ipv4.tcp_congestion_control = bbr
 # Delay the inevitable, running out of memory. This is done by increasing the kernel’s cache pressure.
 # Start preparing for being out of memory sooner by increasing the tendency of your Raspberry Pi to swap. 
 # However, swap will now be stored via much faster ZRAM.
-# vm.vfs_cache_pressure=500
-# vm.swappiness=100
-# vm.dirty_background_ratio=1
-# vm.dirty_ratio=50
+vm.vfs_cache_pressure=500
+vm.swappiness=100
+vm.dirty_background_ratio=1
+vm.dirty_ratio=50
 ```
 
 Then save (Ctrl+O) and exit (Ctrl+X) nano.
@@ -189,4 +189,7 @@ sudo sysctl -p
 ```
 
 ### Resources
-* Book of Zeus: [Harden Ubuntu](https://bookofzeus.com/harden-ubuntu/)
+* Book of Zeus: [Harden Ubuntu](https://bookofzeus.com/harden-ubuntu/hardening/sysctl-conf/)
+* Debian wiki: [zram](https://wiki.debian.org/ZRam)
+* Hayden James blog: [Linux Performance: Why You Should Almost Always Add Swap Space](https://haydenjames.io/linux-performance-almost-always-add-swap-space/)
+* Hayden James blog: [Linux Performance: Almost Always Add Swap. Part 2: ZRAM](https://haydenjames.io/linux-performance-almost-always-add-swap-part2-zram/)

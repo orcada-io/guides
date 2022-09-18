@@ -85,3 +85,6 @@ Swap:           11Gi       8.1Gi       3.4Gi
 
 ### Resources
 * Debian wiki: [zram](https://wiki.debian.org/ZRam)
+* Hayden James blog: [Linux Performance: Why You Should Almost Always Add Swap Space](https://haydenjames.io/linux-performance-almost-always-add-swap-space/)
+* Hayden James blog: [Linux Performance: Almost Always Add Swap. Part 2: ZRAM](https://haydenjames.io/linux-performance-almost-always-add-swap-part2-zram/)
+  
