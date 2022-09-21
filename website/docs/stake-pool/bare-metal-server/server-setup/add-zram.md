@@ -47,7 +47,7 @@ And update it as follows:
 # Specifies the amount of RAM that should be used for zram
 # based on a percentage the total amount of available memory
 # This takes precedence and overrides SIZE below
-PERCENT=150
+PERCENT=200
 
 # Specifies a static amount of RAM that should be used for
 # the ZRAM devices, this is in MiB

@@ -116,10 +116,11 @@ cardano-cli query leadership-schedule \
 You should see something like:
 
 ```
-SlotNo                          UTC Time              
-
+ SlotNo                           UTC Time              
 --------------------------------------------------
 71025961                   2022-09-07 23:10:52 UTC
+71281156                   2022-09-10 22:04:07 UTC
+71416618                   2022-09-12 11:41:49 UTC
 ```
 
 1.5 days before an epoch boundary you can query the leadership schedule for the **next** epoch:
@@ -134,6 +135,19 @@ cardano-cli query leadership-schedule \
   --stake-pool-id $(cat ./stakepoolid.txt) \
   --vrf-signing-key-file ./vrf.skey \
   --next
+```
+
+You should see something like:
+
+```
+ SlotNo                           UTC Time              
+--------------------------------------------------
+71493318                   2022-09-13 09:00:09 UTC
+71507684                   2022-09-13 12:59:35 UTC
+71535556                   2022-09-12 11:41:49 UTC
+71648565                   2022-09-15 04:07:36 UTC
+71707218                   2022-09-15 20:25:09 UTC
+71721002                   2022-09-16 00:14:53 UTC
 ```
 
 ### Resources

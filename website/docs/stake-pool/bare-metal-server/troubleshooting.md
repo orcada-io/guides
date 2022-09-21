@@ -8,8 +8,7 @@ sidebar_position: 2
 
 ### Current Boot
 
-To see the logs for the current boot that <a href="https://wiki.debian.org/systemd" target="_blank">journald</a> knows 
-about, use the `-b` flag:
+To see the logs for the current boot, use the `-b` flag:
 
 ```
 sudo journalctl -b
