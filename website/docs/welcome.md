@@ -9,3 +9,9 @@ Welcome to the Orcada Stake Pool guides.
 
 These guides will help you to build and operate a Cardano Stake Pool that is resilient (scalable, highly available and 
 secure) and energy efficient (uses low power devices like the Raspberry Pi).
+
+These guides are based on our Stake Pool's infrastructure: gateways, interior router, switches, Raspberry Pi (RPi) and 
+Network Attached Storage (NAS).
+
+We have decided to make the guides publicly available so that other Stake Pool operators may benefit from the lessons 
+we have learned.
