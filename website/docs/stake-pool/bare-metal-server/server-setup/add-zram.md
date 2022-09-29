@@ -47,7 +47,7 @@ And update it as follows:
 # Specifies the amount of RAM that should be used for zram
 # based on a percentage the total amount of available memory
 # This takes precedence and overrides SIZE below
-PERCENT=200
+PERCENT=150
 
 # Specifies a static amount of RAM that should be used for
 # the ZRAM devices, this is in MiB
@@ -67,7 +67,22 @@ Reload zram:
 sudo systemctl reload zramswap.service
 ```
 
+
 ### Useful commands
+
+You can use the <a href="https://manpages.debian.org/bullseye/util-linux/zramctl.8.en.html" target="_blank">zramctl</a> 
+command to list the zram devices present and their status:
+
+```
+sudo zramctl
+```
+
+You should see something like:
+
+```
+NAME       ALGORITHM DISKSIZE  DATA COMPR TOTAL STREAMS MOUNTPOINT
+/dev/zram0 lz4          11.4G  6.8G  4.1G  4.4G       4 [SWAP]
+```
 
 Run the following command to check your memory usage:
 

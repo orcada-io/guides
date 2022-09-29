@@ -230,8 +230,9 @@ So the default RTS parameters are:
 
 ### Runtime system options
 
-The RTS has a lot of options to control its behaviour. For example, you can change the context-switch interval, the 
-default size of the heap, and enable heap profiling.
+The RTS has a lot of <a href="https://downloads.haskell.org/ghc/latest/docs/users_guide/runtime_control.html#" target="_blank">options</a> 
+to control its behaviour. For example, you can change the context-switch interval, the default size of the heap, and 
+enable heap profiling.
 
 ### Setting the runtime system options
 
@@ -246,7 +247,7 @@ nano $HOME/.bashrc
 Add the following line to the bottom of the file:
 
 ```
-export GHCRTS='-A64M -AL128M -F1.1 -H3500M -I0.1 -Iw3600 -N2 -n4m -O3500M'
+export GHCRTS='-A64M -AL128M -F1.1 -H3500M -I0.1 -Iw3600 -N2 -n4m -O3500M --disable-delayed-os-memory-return'
 ```
 
 Then save (Ctrl+O) and exit (Ctrl+X) nano.
@@ -256,6 +257,16 @@ Source the file:
 ```
 source $HOME/.bashrc
 ```
+
+### Runtime statistics
+
+The **-S** RTS option produces information about each and every garbage collection:
+
+```
+export GHCRTS='-A64M -AL128M -F1.1 -H3500M -I0.1 -Iw3600 -N2 -n4m -O3500M --disable-delayed-os-memory-return -S'
+```
+
+The output is sent to stderr.
 
 :::info
 To further reduce memory and cpu usage set "TraceMemPool" to "false" in the `${NODE_CONFIG}-config.json` file:
@@ -279,6 +290,7 @@ And update it as follows:
 
 ```
 #!/bin/bash
+
 . /home/ada/.adaenv
 
 cardano-node run \

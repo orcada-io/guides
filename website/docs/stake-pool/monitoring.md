@@ -194,3 +194,5 @@ grafana-cli plugins install grafana-clock-panel
 * Grafana docs: [Configuration](https://grafana.com/docs/grafana/latest/)
 * Grafana docs: [About Grafana dashboards](https://grafana.com/docs/grafana/latest/dashboards/)
 * Grafana docs: [Best Practices](https://grafana.com/docs/grafana/latest/best-practices/)
+* Pool Data docs: [Pool Data API for Grafana](https://api.pooldata.live/)
+  

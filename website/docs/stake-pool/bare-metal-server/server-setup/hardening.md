@@ -174,10 +174,12 @@ net.ipv4.tcp_congestion_control = bbr
 # Delay the inevitable, running out of memory. This is done by increasing the kernel’s cache pressure.
 # Start preparing for being out of memory sooner by increasing the tendency of your Raspberry Pi to swap. 
 # However, swap will now be stored via much faster ZRAM.
-vm.vfs_cache_pressure=500
-vm.swappiness=100
-vm.dirty_background_ratio=1
-vm.dirty_ratio=50
+# vm.vfs_cache_pressure=500
+# vm.swappiness=100
+# vm.dirty_background_ratio=1
+# vm.dirty_ratio=50
+# vm.min_free_kbytes=512000
+# vm.overcommit_memory=2
 ```
 
 Then save (Ctrl+O) and exit (Ctrl+X) nano.
