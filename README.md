@@ -5,5 +5,3 @@
 <h1 align="center">
   <a href="https://orcada-io.github.io/guides/" target="_blank">Orcada Stake Pool Guides</a>
 </h1>
-
-![divider](./divider.png)
