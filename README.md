@@ -2,8 +2,8 @@
   <img src="./orcada-logo.png" alt="Orcada" width="400"/>
 </p>
 
-<h1 align="center">Orcada Stake Pool Guides</h1>
-
-<span align="center">https://orcada-io.github.io/guides/</span>
+<h1 align="center">
+  <a href="https://orcada-io.github.io/guides/" target="_blank">Orcada Stake Pool Guides</a>
+</h1>
 
 ![divider](./divider.png)
