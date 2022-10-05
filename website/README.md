@@ -39,6 +39,6 @@ $ USE_SSH=true
 $ GIT_USER=Robinyo npm run deploy
 ```
 
-Password for 'https://Robinyo@github.com': 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
+Password for 'https://Robinyo@github.com': 
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
