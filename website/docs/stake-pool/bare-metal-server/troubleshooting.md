@@ -42,6 +42,16 @@ For example:
 sudo journalctl --since "2022-09-18 08:10:00"
 ```
 
+### String search
+
+You can search for occurrences of a string.
+
+For example:
+
+```
+sudo journalctl -b -o cat --no-pager | grep "74841449"
+```
+
 ### Filtering
 
 #### By priority

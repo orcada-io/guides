@@ -15,5 +15,3 @@ and Network Attached Storage.
 
 We have decided to make the guides publicly available so that other Stake Pool operators may benefit from the lessons 
 we have learned.
-
-
