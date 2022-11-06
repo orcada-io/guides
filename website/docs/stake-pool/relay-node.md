@@ -21,7 +21,6 @@ mkdir -p ${HOME}/.local/bin && \
 mkdir -p ${HOME}/pi-pool/files  && \
 mkdir -p ${HOME}/pi-pool/logs && \
 mkdir -p ${HOME}/pi-pool/scripts && \
-mkdir ${HOME}/git && \
 mkdir ${HOME}/tmp
 ```
 
@@ -41,7 +40,6 @@ You should see something like:
 
 ```
 .
-├── git
 ├── .local
 │   ├── bin
 ├── pi-pool
@@ -462,7 +460,6 @@ This is going to take a quite a while, the /db folder is about 80GB in size righ
 
 ```
 .
-├── git
 ├── .local
 │   ├── bin
 ├── pi-pool
