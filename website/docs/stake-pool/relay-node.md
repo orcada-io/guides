@@ -4,6 +4,10 @@ sidebar_position: 3
 
 # Relay Node
 
+### Prerequisites
+
+You must first complete the steps in the Bare-Metal Server guide.
+
 ## Raspberry Pi 4 Model B 8GB
 
 <p align="center">

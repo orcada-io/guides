@@ -98,7 +98,7 @@ And the Vendor Settings:
 There is one more configuration step we need to complete on the DHCP Server, however, we can't do that until we have 
 setup our RPi.
 
-## Raspberry Pi
+## Raspberry Pi 4 Model B 8GB
 
 <p align="center">
 
