@@ -15,6 +15,19 @@ basic hardware functionality will "just work".
 
 </p>
 
+## Raspberry Pi 400
+
+The Raspberry Pi 400 is a personal computer, built into a compact keyboard.
+
+It features a quad-core 64-bit processor, 4GB of RAM, wireless networking, dual-display output, and 4K video playback,
+as well as a 40-pin GPIO header.
+
+<p align="center">
+
+![Raspberry Pi 4 Model B](img/raspberry-pi-400.png)
+
+</p>
+
 ### References
 
 * SolidRun: <a href="https://www.solid-run.com/arm-servers-networking-platforms/honeycomb-servers-workstation/" target="_blank">HoneyComb LX2</a>

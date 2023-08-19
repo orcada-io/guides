@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Welcome
 
-Welcome to the Orcada Stake Pool Guides. 
+Welcome to the <a href="https://orcada.io/" target="_blank">Orcada</a> Stake Pool Guides. 
 
 These guides will help you to build and operate a Cardano Stake Pool, that:
 - uses on premise infrastructure

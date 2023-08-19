@@ -37,4 +37,3 @@ as well as a 40-pin GPIO header.
 
 * Wikipedia: <a href="https://en.wikipedia.org/wiki/Raspberry_Pi" target="_blank">Raspberry Pi</a>
 * Raspberry Pi docs: <a href="https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711" target="_blank">Processors</a>
-* Downey blog: <a href="https://downey.io/blog/raspberry-pi-4-heatsinks-and-fans" target="_blank">The great Raspberry Pi cooling bake-off</a>

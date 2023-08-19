@@ -10,6 +10,7 @@ const config = {
   tagline: 'Cardano Stake Pool Guides',
   url: 'https://orcada-io.github.io',
   baseUrl: '/guides/',
+  staticDirectories: ['static'],
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/orcada-logo.png',
@@ -38,8 +39,8 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/orcada-io/guides/edit/master/',
+          // editUrl:
+          //   'https://github.com/orcada-io/guides/edit/master/',
         },
         blog: false, // Optional: disable the blog plugin
         theme: {

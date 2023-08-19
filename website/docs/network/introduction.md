@@ -8,7 +8,7 @@ What hardware do you need to host a Cardano Stake Pool?
 
 The answer is, it depends. However, at a minimum we suggest:
 
-- 1 @ Internet Gateway (a modem/router combo typically supplied by your ISP)
+- 1 @ Internet Gateway (a modem/router combination typically supplied by your ISP)
 - 1 @ Interior Router
 - 2 @ Switches
 - 1 @ NAS device
