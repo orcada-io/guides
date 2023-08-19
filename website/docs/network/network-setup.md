@@ -69,6 +69,8 @@ LAN3    192.168.103.1   255.255.255.0
 
 We'll use LAN1 as our public network, LAN2 as our private network and LAN3 as our management network.
 
+**Note:** Later on we'll configure static routes from the Internet Gateway to the interior router's LAN1.
+
 ## Switch
 
 A network switch is a device used to connect computers to a local area network.
