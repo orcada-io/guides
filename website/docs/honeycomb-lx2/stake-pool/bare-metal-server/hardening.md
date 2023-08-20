@@ -48,6 +48,6 @@ sudo apt update && sudo apt install -y unattended-upgrades
 sudo dpkg-reconfigure -plow unattended-upgrades
 ```
 
-### Resources
+##  Resources
 * Debian wiki: [Security Management](https://wiki.debian.org/SecurityManagement)
 * Debian docs: [Securing Debian Manual](https://www.debian.org/doc/manuals/securing-debian-manual/index.en.html)

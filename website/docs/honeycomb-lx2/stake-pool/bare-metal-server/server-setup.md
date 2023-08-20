@@ -332,8 +332,6 @@ GRUB_CMDLINE_LINUX_DEFAULT="arm-smmu.disable_bypass=0 iommu.passthrough=1 consol
 
 Then save (Ctrl+O) and exit (Ctrl+X) nano.
 
-Reconnect to the device using SSH.
-
 ## Resources
 
 * SolidRun wiki: [Serial Connection Guide](https://solidrun.atlassian.net/wiki/spaces/developer/pages/287801409/Serial+Connection)
