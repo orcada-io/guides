@@ -20,7 +20,7 @@ The HoneyComb LX2 is ARM <a href="https://developer.arm.com/Architectures/Arm%20
 - 1 @ HoneyComb LX2
 - 1 @ Silicon Power 64GB (2 x 32GB) SO-DIMM DDR4 3200MHz (must be a matched pair)
 - 1 @ Samsung 2TB 970 EVO Plus NVMe SSD
-- 1 @ <a href="https://www.linksys.com/support-product?sku=USB3GIG" target="_blank">Linksys USB 3 Gigabit Ethernet Adapter</a>
+- 1 @ Linksys USB 3 Gigabit Ethernet Adapter
 - 1 @ Cable Matters Micro USB to USB-C cable
 - 1 @ SanDisk 32GB Micro SD card
 - 1 @ SanDisk 32GB Flash Drive
@@ -41,13 +41,13 @@ I used the <a href="https://www.balena.io/etcher/" target="_blank">balenaEtcher<
 
 **Note:** You must use the firmware image that matches the clock speed (e.g., 3200 MHz) of your DDR4 RAM.
 
-### Linux distribution
+### Operating System
 
 I used the <a href="https://www.balena.io/etcher/" target="_blank">balenaEtcher</a> to flash a Debian 11.5 <a href="https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/" target="_blank">ISO image</a> (i.e., debian-11.5.0-arm64-netinst.iso) to the USB 3 flash drive.
 
 ### First boot
 
-Connect the USB 3 ethernet adapter to your switch (or router). Insert the Micro SD card and the USB 3 flash drive.
+Connect the USB 3 ethernet adapter to your switch. Insert the Micro SD card and the USB 3 flash drive.
 
 #### Serial connection
 
@@ -108,13 +108,88 @@ console=ttyAMA0,115200n8 ---
 
 Press `Ctrl-x` to launch the Debian installer.
 
+The installer will create a 'root' account and prompt you to create an ordinary user account.
+
+The ordinary user account name should be: ada
+
 After the installation is complete power off the server, remove the USB Flash Drive and then power on the server.
 
-Login:
+Login as root:
 
 ![Login](img/login.png)
 
-## How to upgrade the Linux kernel
+### Install sudo
+
+```
+su -
+apt install sudo
+adduser ada sudo
+exit
+```
+
+You must log out and log back in for sudo to work.
+
+Update the operating system:
+
+```
+sudo apt update
+sudo apt upgrade
+sudo apt-get autoremove
+sudo apt-get autoclean
+```
+
+### Add a SSH Public key
+
+Get the public key (e.g., from your MacBook Pro)
+
+```
+cat ~/.ssh/authorized_keys
+```
+
+You should see something like:
+
+```
+ssh-ed25519 AAAAC3NzaC1lZDI1NTF5AAAAIMuwO/L0EadRQwrciM058abNax+7SNt8PdlbwqYtTxSg homer@mbpro-1.home
+```
+
+Create a `.ssh` directory in the (ada) user’s home directory on the server:
+
+```
+cd /home/ada
+mkdir .ssh
+cd .ssh
+```
+
+Create an `authorized_keys` file:
+
+```
+nano authorized_keys
+```
+
+Add the public key to the file:
+
+```
+ssh-ed25519 AAAAC3NzaC1lZDI1NTF5AAAAIMuwO/L0EadRQwrciM058abNax+7SNt8PdlbwqYtTxSg homer@mb-1.home
+```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
+Set the file permissions:
+
+```
+chmod 700 /home/ada/.ssh && chmod 600 /home/ada/.ssh/authorized_keys
+```
+
+Set the ownership:
+
+```
+chown -R ada:ada /home/ada/.ssh
+```
+
+### Upgrade the Linux kernel
+
+There are some known issues with the ASIX chip drivers (generally used by USB 3 gigabit ethernet adapters) included in 
+off the shelf (mainline) Linux distributions. However, we can address these issues by upgrading the Linux kernel.
 
 The easiest way to upgrade the kernel is to use the backports repository.
 
@@ -158,13 +233,112 @@ Linux #1 SMP Debian 5.18.16-1~bpo11+1 (2022-08-12)
 
 The updated kernel has driver support for the LX2's gigabit ethernet adapter.
 
-## Afterword
+### Configure a static IP
 
-Unfortunately, there are some known issues with the ASIX chip drivers (generally used by USB 3 gigabit ethernet adapters) included in off the shelf (mainline) Linux distributions.
+Connect the LX2's gigabit ethernet adapter to a switch using an ethernet (Cat 6) cable.
 
-* Kernel.org Bugzilla – Bug 212731: [USB 3 gigabit ethernet adapter ASIX AX88179](https://bugzilla.kernel.org/show_bug.cgi?id=212731)
+To configure a static IP we need to edit the `/etc/network/interfaces` file:
 
-### Resources:
+```
+sudo nano /etc/network/interfaces
+```
+
+And update it as follows:
+
+```
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+iface eth0 inet static
+  address 192.168.102.13/24
+  gateway 192.168.102.1
+```
+
+Reinitialise the network setup:
+
+```
+sudo systemctl restart networking
+```
+
+The server's (lx2-1) address is:
+
+```
+192.168.102.13
+```
+
+**Note:** You can list interfaces using the following command:
+
+```
+ls /sys/class/net
+```
+
+### Configure the hostname
+
+To configure the server's hostname we need to edit the `/etc/hostname` file:
+
+```
+sudo nano /etc/hostname
+```
+
+And update it as follows:
+
+```
+lx2-1
+```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
+We also need to edit the `/etc/hosts` file:
+
+```
+sudo nano /etc/hosts
+```
+
+And update it as follows:
+
+```
+127.0.0.1       localhost
+127.0.1.1       lx2-1.orcada.io lx2-1
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
+### Update grub
+
+To update grub we need to edit the `/etc/default/grub` file:
+
+```
+sudo nano /etc/default/grub
+```
+
+And update it as follows:
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="arm-smmu.disable_bypass=0 iommu.passthrough=1 console=ttyAMA0,115200n8"
+```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
+Reconnect to the device using SSH.
+
+## Resources
+
 * SolidRun wiki: [Serial Connection Guide](https://solidrun.atlassian.net/wiki/spaces/developer/pages/287801409/Serial+Connection)
 * Discord: [SolidRun channel](https://discord.com/channels/620838168794497044/665456384971767818)
 * Debian GNU/Linux Installation Guide: [Console configuration](https://www.debian.org/releases/stable/arm64/ch05s01.en.html#arm64-console-setup)
+* Debian wiki: [sudo](https://wiki.debian.org/sudo/)
+* Debian wiki: [Network Configuration](https://wiki.debian.org/NetworkConfiguration)
+

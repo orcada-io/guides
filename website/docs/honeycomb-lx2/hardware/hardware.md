@@ -15,7 +15,7 @@ basic hardware functionality will "just work".
 
 </p>
 
-## Raspberry Pi 400
+# Raspberry Pi 400
 
 The Raspberry Pi 400 is a personal computer, built into a compact keyboard.
 

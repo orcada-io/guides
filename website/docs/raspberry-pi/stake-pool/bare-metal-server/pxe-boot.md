@@ -149,8 +149,6 @@ sudo nano /etc/dhcpcd.conf
 And add the following lines to the bottom of the file:
 
 ```
-...
-
 # relay-node-1
 interface eth0
 static ip_address=192.168.101.3/24
