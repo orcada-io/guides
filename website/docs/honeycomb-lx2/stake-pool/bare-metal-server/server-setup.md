@@ -33,7 +33,7 @@ I wanted to rack mount the LX2, so I purchased a <a href="https://www.mini-itx.c
 
 I mounted the board and then installed the RAM and the NVMe SSD. I attached the dual 24/20 (sometimes called 20+4) power supply connector to the ATX 24-pin motherboard socket. The fan to the fan PWM socket and the front panel connector ribbon to the board's front panel connectors.
 
-![LX2 rack mounted](img/lx2-fixed-1.png)
+![LX2 rack mounted](img/lx2-fixed.png)
 
 ### Firmware
 
@@ -51,7 +51,7 @@ Connect the USB 3 ethernet adapter to your switch. Insert the Micro SD card and 
 
 #### Serial connection
 
-Connect the micro USB to the LX2 and the USB-C cable to your workstation.
+Use the Micro USB to USB-C cable, connect the micro USB adapter to the LX2 and the USB-C adapter to your workstation (e.g., MacBook Pro).
 
 Look for the device:
 
@@ -78,7 +78,7 @@ Power on the server.
 
 Press the `esc` key when prompted by the UEFI firmware:
 
-![UEFI Firmware](img/uefi-firmware-1.png)
+![UEFI Firmware](img/uefi-firmware.png)
 
 ![Press escape](img/press-escape.png)
 
@@ -127,7 +127,7 @@ adduser ada sudo
 exit
 ```
 
-You must log out and log back in for sudo to work.
+**Note:** You must log out and log back in for sudo to work.
 
 Update the operating system:
 
@@ -138,9 +138,27 @@ sudo apt-get autoremove
 sudo apt-get autoclean
 ```
 
+### Install git
+
+```
+sudo apt install git
+```
+
+Check the version:
+
+```
+git --version
+```
+
+You should see something like:
+
+```
+git version 2.30.2
+```
+
 ### Add a SSH Public key
 
-Get the public key (e.g., from your MacBook Pro)
+Get the public key from your workstation (e.g., MacBook Pro):
 
 ```
 cat ~/.ssh/authorized_keys

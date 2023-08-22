@@ -6,8 +6,7 @@ sidebar_position: 6
 
 The HoneyComb LX2 is an ARM (Advanced RISC Machine) SBC (Single Board Computer) with 16 cores and support for up to 64GB of memory.
 
-The HoneyComb LX2 is ARM SystemReady ES certified, which means any off the shelf Linux distribution should boot and 
-basic hardware functionality will "just work".
+The HoneyComb LX2 is ARM <a href="https://developer.arm.com/Architectures/Arm%20SystemReady%20ES" target="_blank">SystemReady ES</a> certified, which means any off the shelf Linux distribution should boot and basic hardware functionality will "just work".
 
 <p align="center">
 
