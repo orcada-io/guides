@@ -50,17 +50,22 @@ You should see something like:
 ├── docker
 │   ├── cardano-node
 │   │   ├── build
+│   │   │   ├── cardano-node.dockerfile
+│   │   │   └── entrypoint.sh
+│   │   │   └── submit-api.sh
 │   │   │   └── files
+│   │   │       └── topology.json
 │   │   └── run
 │   │       ├── core-node-1
 │   │           └── .keys
+│   │           └── usb-transfer
 │   │       └── relay-node-1
 │   │           └── .keys
 │   │       └── relay-node-2
 │   │           └── .keys
 │   │       └── relay-node-3
 │   │           └── .keys
-└── usb-transfer
+└── tmp
 ```
 
 ### Build the project
