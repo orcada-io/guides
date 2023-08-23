@@ -81,4 +81,4 @@ We'll connect a switch to the interior router's LAN1 port and another switch to 
 
 A Network Attached Storage (NAS) device provides centralised, high performance file storage to client devices.
 
-Our NAS has two RJ-45 1GbE LAN ports, so we'll connect it to both switches.
+Our NAS device has two RJ-45 1GbE LAN ports, so we'll connect it to both switches.
