@@ -30,6 +30,65 @@ Launch the container:
 sudo ./run.sh
 ```
 
+**Note:** The `run.sh` shell script contains the configuration information for the container, including its name, 
+port number, etc.
+
+### Topology
+
+The Stake Pool topology describes the nodes that comprise the Cardano network. Each stake pool must operate at least 
+one relay node and one core (block producing) node.
+
+There are several tools that you can use to obtain information about the Cardano network, for example:
+
+```
+https://cexplorer.io/relays
+```
+
+and
+
+```
+https://explorer.mainnet.cardano.org/relays/topology.json
+```
+
+#### Configuring a Relay Node
+
+Connect to the container:
+
+```
+sudo docker exec -it relay-node-3 bash
+```
+
+Edit the `topology.json` file::
+
+```
+cd ~/pool/files
+nano topology.json
+```
+
+Add a record for the core node and a record for each peer relay node:
+
+```
+{
+  "Producers": [
+    {
+      "addr": "CoreNodeIPAddress",
+      "port": CoreNodePortNumber,
+      "valency": 1
+    },
+    {
+      "addr": "PeerRelayNodeIPAddress",
+      "port": PeerRelayNodePortNumber,
+      "valency": 1
+    },
+    {
+      ...
+    }
+  ]
+}
+```
+
+Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
 ### gLiveView
 
 Run gLiveView:
