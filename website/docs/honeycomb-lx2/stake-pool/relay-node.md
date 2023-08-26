@@ -7,7 +7,7 @@ sidebar_position: 4
 ## Docker Image
 
 The Cardano Node Docker Image contains all the files you need to run a Cardano node on an arm64 device.
-The node can be configured to run as a relay node or as a core (block producing) node.
+The image can be configured to run as a relay node or as a core (block producing) node.
 
 ### Run the container
 
@@ -88,6 +88,13 @@ Add a record for the core node and a record for each peer relay node:
 ```
 
 Then save (Ctrl+O) and exit (Ctrl+X) nano.
+
+Stop and then restart the container:
+
+```
+sudo docker container stop relay-node-3
+sudo docker container start relay-node-3
+```
 
 ### gLiveView
 

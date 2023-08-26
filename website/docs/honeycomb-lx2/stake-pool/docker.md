@@ -14,7 +14,7 @@ Follow the step-by-step guide in the Docker docs to install Docker Engine using 
 ## Docker Image
 
 The Cardano Node Docker Image contains all the files you need to run a Cardano node on an arm64 device.
-The node can be configured to run as a relay node or as a core (block producing) node.
+The image can be configured to run as a relay node or as a core (block producing) node.
 
 ### Clone the project
 
@@ -67,6 +67,25 @@ You should see something like:
 │   │           └── .keys
 └── tmp
 ```
+
+### Relay node host - topology
+
+On the LX2 that is the host for your public Relay nodes:
+
+```
+cd cardano-node/build/files
+cp relay-node-topology.json topology.json
+```
+
+### Core node host - topology
+
+On the LX2 that is the host for your Core node:
+
+```
+cd cardano-node/build/files
+cp core-node-topology.json topology.json
+```
+
 
 ### Build the project
 
